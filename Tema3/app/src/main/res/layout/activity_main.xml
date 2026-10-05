@@ -22,25 +22,27 @@
 
     <Button
         android:id="@+id/boton1"
+        style="@style/BotonTarea"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Botón 1"
+        android:text="@string/continuar"
         android:textSize="18sp"
         android:layout_marginBottom="20dp"
         app:backgroundTint="@color/rojo"
         app:layout_constraintTop_toBottomOf="@id/texto"
-        app:layout_constraintBottom_toTopOf="@id/boton2"
+        app:layout_constraintBottom_toTopOf="@id/boton1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/boton2"
+        style="@style/BotonTarea"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Botón 2"
+        android:text="@string/cancelar"
         android:textSize="18sp"
         app:backgroundTint="@color/verde"
-        app:layout_constraintTop_toBottomOf="@id/boton1"
+        app:layout_constraintTop_toBottomOf="@id/boton2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

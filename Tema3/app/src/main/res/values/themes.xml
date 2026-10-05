@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Tema3" parent="Base.Theme.Tema3" />
+
+    <style name="BotonTarea" parent="Widget.AppCompat.Button">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>
