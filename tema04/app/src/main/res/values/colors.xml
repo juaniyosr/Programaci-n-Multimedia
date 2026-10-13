@@ -6,4 +6,8 @@
     <color name="bloque_oscuro">#212121</color>
     <color name="bloque_claro">#FAFAFA</color>
     <color name="cuadrado_verde">#00897B</color>
+    <color name="calc_texto_display">#1B1B1B</color>
+    <color name="calc_teclado">#1F3A5F</color>
+    <color name="calc_boton">#2EC4B6</color>
+    <color name="calc_texto">#FF6B6B</color>
 </resources>
