@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ListaJuan</string>
+    <string name="imagen_elemento">Imagen del elemento</string>
+    <string name="cabecera">Los videojuegos de Juan</string>
+</resources>
