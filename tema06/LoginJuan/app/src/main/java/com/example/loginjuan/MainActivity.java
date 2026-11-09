@@ -1,5 +1,7 @@
 package com.example.loginjuan;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,11 +42,20 @@ public class MainActivity extends AppCompatActivity {
         Button btnContinuar = findViewById(R.id.btnContinuar);
         TextView tvMensaje = findViewById(R.id.tvMensaje);
 
+        // Ejercicio 2: leer el correo guardado al abrir la app
+        SharedPreferences prefs = getSharedPreferences("sesion", MODE_PRIVATE);
+        String correoGuardado = prefs.getString("correo", null);
+        if (correoGuardado != null) {
+            etCorreo.setText(correoGuardado);
+            swRecordar.setChecked(true);
+            etPass.requestFocus(); // el cursor va a la contraseña
+        }
+
         btnContinuar.setOnClickListener(v -> {
             String correo = etCorreo.getText().toString().trim();
             String pass = etPass.getText().toString();
 
-            // 1.4 Campos vacíos: se marca la caja y no se comprueba nada más
+            // Campos vacíos: se marca la caja y no se comprueba nada más
             boolean hayVacios = false;
             if (correo.isEmpty()) {
                 etCorreo.setError(getString(R.string.error_correo_vacio));
@@ -58,16 +69,22 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            // 1.2 Comparación con equals (nunca con ==)
+            // Comparación con equals (nunca con ==)
             if (correo.equals(CORREO_VALIDO) && pass.equals(PASS_VALIDA)) {
                 intentos = 0; // si aciertas, el contador vuelve a 0
-                tvMensaje.setTextColor(getColor(R.color.correcto));
-                // 1.3 Recordar contraseña
+
+                // Ejercicio 2: guardar o borrar el correo (la contraseña NUNCA se guarda)
                 if (swRecordar.isChecked()) {
-                    tvMensaje.setText(R.string.msg_correcto_recordar);
+                    prefs.edit().putString("correo", correo).apply();
                 } else {
-                    tvMensaje.setText(R.string.msg_correcto);
+                    prefs.edit().remove("correo").apply();
                 }
+
+                // 1.2: abrir el menú pasando el correo y cerrar el login
+                Intent intent = new Intent(this, MenuActivity.class);
+                intent.putExtra(MenuActivity.EXTRA_CORREO, correo);
+                startActivity(intent);
+                finish();
             } else {
                 intentos++;
                 tvMensaje.setTextColor(getColor(R.color.incorrecto));
