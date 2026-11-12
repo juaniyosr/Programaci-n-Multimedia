@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ReproductorJuan</string>
+    <string name="titulo_app">Reproductor de Juan</string>
+    <string name="cancion_titulo_autor">No se XQ · La Pantera</string>
+    <string name="tiempo_inicial">00:00</string>
+    <string name="play">Play</string>
+    <string name="pausa">Pausa</string>
+    <string name="efectos_titulo">Efectos de sonido</string>
+    <string name="efecto_1">Aplauso</string>
+    <string name="efecto_2">Campana</string>
+    <string name="efecto_3">Láser</string>
+    <string name="efecto_4">Moneda</string>
+</resources>
