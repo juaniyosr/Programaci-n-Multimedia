@@ -115,6 +115,21 @@ public class MainActivity extends AppCompatActivity {
         handler.post(actualizar);
     }
 
+    // Sale de la pantalla: silencio y la barra deja de actualizarse
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.pause();
+        handler.removeCallbacks(actualizar);
+    }
+
+    // Se cierra la app: liberar el reproductor
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.release();
+    }
+
     // 75000 ms -> "01:15"
     private String formatear(long ms) {
         long segundos = ms / 1000;
